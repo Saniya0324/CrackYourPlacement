@@ -19,6 +19,9 @@ Stack<Character> stack=new Stack();
   {
       stack.pop();
   } 
+else{ 
+return false;
+                }
         }
         return stack.isEmpty();
     }
