@@ -1,0 +1,13 @@
+int n=s.length(),res=0;
+for(int t=0;i<n;i++){
+boolean visited[] =new boolean[256];
+for(int j=1;j<n;j++){
+if(visited[s.charAt(j)-'a']==true){
+break; }
+else{
+res=Math.max(res,j-i+1);
+visited[s,charAt(j)-'a']=true;
+}
+}
+return res;
+}
