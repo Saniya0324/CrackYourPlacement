@@ -1,0 +1,13 @@
+class Solution {
+    public int mySqrt(int x) {
+        if(x<2) return x;
+  int i=1,c=0;
+        while(i<=x){
+        
+           if(i<=x) c++;
+            x=x-i;
+            i+=2;
+        }
+        return c;
+    }
+    }
