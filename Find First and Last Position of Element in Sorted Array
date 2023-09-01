@@ -1,0 +1,19 @@
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+   int n=nums.length;
+      //  ArrayList<Integer> a=new ArrayList<>();
+    int l=-1,r=-1;
+  for(int i=0;i<n;i++){
+     if(nums[i]==target){
+        if(l==-1)l=i;
+         r=i;
+     }     
+    }
+       if(l==-1) {
+           return new int[]{-1,-1};
+       }
+        else {
+            return new int[]{l,r};
+        }
+    }
+}
