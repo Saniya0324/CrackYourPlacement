@@ -1,0 +1,43 @@
+class Solution {
+    public void nextPermutation(int[] nums) {
+        int n = nums.length;
+        int ind = -1;
+
+        // Find the rightmost element that is smaller than the element to its right
+        for (int i = n - 2; i >= 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+                ind = i;
+                break;
+            }
+        }
+
+        if (ind == -1) {
+            // If no such element is found, reverse the entire array
+            reverse(nums, 0, n - 1);
+        } else {
+            // Find the smallest element to the right of 'ind' that is greater than 'ind'
+            for (int i = n - 1; i >= ind; i--) {
+                if (nums[i] > nums[ind]) {
+                    // Swap nums[i] and nums[ind]
+                    int temp = nums[i];
+                    nums[i] = nums[ind];
+                    nums[ind] = temp;
+                    break;
+                }
+            }
+
+            // Reverse the subarray to the right of 'ind'
+            reverse(nums, ind + 1, n - 1);
+        }
+    }
+
+    private void reverse(int[] nums, int start, int end) {
+        while (start < end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
