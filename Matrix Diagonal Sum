@@ -1,0 +1,35 @@
+class Solution {
+    public int diagonalSum(int[][] mat) {
+  int n=mat.length;
+    int m=mat[0].length;
+        int s1=0,s2=0; 
+        
+        int mainDiagonalSum = 0;
+        int secondaryDiagonalSum = 0;
+
+        for (int i = 0; i < n; i++) {
+            for(int j=0;j<m;j++){
+                if(i==j){
+            s1 += mat[i][j]; // Sum of elements on the main diagonal
+                    mat[i][j]=-1;
+                }
+            }
+        }
+           for (int i = 0; i < n; i++) {
+                if(mat[i][n - 1 - i] != -1){
+            s2 += mat[i][n - 1 - i]; // Sum of elements on the secondary diagonal
+        }
+           }
+ return s1+s2;
+    }
+}
+//OR
+ int res = 0;
+        int n = mat.length;
+        for (int i=0; i<n; i++) {
+            res += mat[i][i];      // Primary diagonal
+            res += mat[i][n-1-i];  // Secondary diagonal
+        }
+        return n % 2 == 0 ? res : res - mat[n/2][n/2];
+    }
+}
