@@ -1,0 +1,15 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int n=nums.length;
+        int k = 2; // Initialize the result length to 2 (for the first two elements).
+
+        for (int i = 2; i < n; i++) {
+            if (nums[i] != nums[k - 2]) {
+                nums[k] = nums[i];
+                k++;
+            }
+        }
+
+        return k; // Return the length of the modified array.
+    }
+}
