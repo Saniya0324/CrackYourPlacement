@@ -1,0 +1,24 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int n=nums.length;
+        k=k%n;
+         if (k < 0 ) {
+            return;
+        }
+        int[] aux = new int[k];
+        for (int i = 0; i < k; i++) {
+            aux[i] = nums[n - k + i];
+        }
+ 
+        // shift the first `n-k` elements of the input array at the end
+        for (int i = n - k - 1; i >= 0; i--) {
+            nums[i + k] = nums[i];
+        }
+ 
+        // put the elements of the auxiliary array at their
+        // correct positions in the input array
+        for (int i = 0; i < k; i++) {
+            nums[i] = aux[i];
+        }
+    }
+}
