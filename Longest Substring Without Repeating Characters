@@ -19,3 +19,25 @@ int l=0,r=0;
         return len;
     }
 }
+//OR
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+  int n=s.length(),res=0,l=0;
+
+  for(int i=0;i<n;i++){
+      HashSet<Character> h=new HashSet<>();
+      String st="";
+int j=i;
+      while(j<n){
+   if(!h.contains(s.charAt(j))){
+       h.add(s.charAt(j));
+       j++;      
+      }
+          else break;
+   }
+      st=s.substring(i,j);
+      l=Math.max(l,st.length());
+  }
+        return l;
+}
+    }
