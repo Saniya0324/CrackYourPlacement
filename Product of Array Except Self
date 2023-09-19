@@ -1,0 +1,16 @@
+ public int[] productExceptSelf(int[] nums) {
+        int n=nums.length;
+     int[] op=new int[n];
+        int p=1;
+       for(int i=0; i<n; i++){
+        p *=nums[i];
+         op[i]=p;
+    }
+        p=1;
+     for(int i=n-1; i>=1; i--){
+         op[i]=op[i-1]*p;
+         p*=nums[i];
+     }
+        op[0]=p;
+    return op;
+    }
