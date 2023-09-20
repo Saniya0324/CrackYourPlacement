@@ -1,0 +1,20 @@
+public ListNode removeNthFromEnd(ListNode head, int n) {
+     ListNode curr=head;
+        int c=0,t=0;
+    while(curr !=null){
+      c++;
+        curr=curr.next;
+    }
+        if(c==1) return null;
+      t=c-n+1;
+        if(t==1){
+            head=head.next;
+            return head;
+        }
+     curr=head;   
+    for(int i=1;i<t-1;i++){
+       curr=curr.next;
+    }
+        curr.next=curr.next.next;
+        return head;
+    }
