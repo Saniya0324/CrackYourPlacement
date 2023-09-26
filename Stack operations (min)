@@ -1,0 +1,35 @@
+class MinStack {
+    int min=Integer.MAX_VALUE;
+     Stack<Integer> st =new Stack<>();
+    public MinStack() {
+    
+    }    
+    public void push(int val) {
+         if (val <= min) {
+            st.push(min); // Push the previous minimum onto the stack
+            min = val; // Update the new minimum
+        }
+        st.push(val);
+    }
+    
+public void pop() {
+     if (st.isEmpty()) {
+            return;
+        }
+        int t = st.pop();
+        if (t == min) {
+            // If the popped element is the current minimum, update the minimum
+            min = st.pop(); // The next element on the stack is the previous minimum
+        }
+    }
+    
+    public int top() {
+         if (st.isEmpty()) {
+            return -1; // Handle the case of an empty stack (you can choose any appropriate value)
+        }
+        return st.peek();
+}
+     public int getMin() {
+        return min;
+     }
+}
