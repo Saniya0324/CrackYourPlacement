@@ -1,0 +1,20 @@
+//Insert in a BST
+public TreeNode insertIntoBST(TreeNode root, int val) {
+    if(root==null) return new TreeNode(val);
+    if(val<root.val){
+        root.left=insertIntoBST(root.left,val);
+    }
+        else{
+            root.right=insertIntoBST(root.right,val);
+        } 
+        return root;
+    }
+
+//Search in a BST
+public TreeNode searchBST(TreeNode root, int val) {
+        while(root!=null && root.val!=val) {
+    if(val>root.val) root=root.right;
+        else  root=root.left;
+        }
+    return root;
+    }
