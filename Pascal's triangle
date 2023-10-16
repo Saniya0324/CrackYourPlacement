@@ -10,3 +10,18 @@ class Solution {
         return a;
     }
 }
+//////////////////////
+public List<List<Integer>> generate(int numRows) {
+    List<List<Integer>> res=new ArrayList<>();
+    for(int i=0;i<numRows;i++){
+    List<Integer> a=new ArrayList<>();
+    a.add(1);
+    for(int j=1;j<=i;j++){
+      long prev=a.get(j-1);
+     long cur=prev*(i-j+1)/j;
+        a.add((int) cur);
+    }
+        res.add(a);
+    }
+        return res;
+    }
