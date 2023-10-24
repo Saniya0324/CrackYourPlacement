@@ -1,0 +1,18 @@
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter: ");
+        String s=sc.nextLine();
+//
+        String ans="";
+        String[] a=s.split(" ");
+        for(int i=0;i<a.length;i++){
+            String temp=a[i];
+            String temp2="";
+            for(int j=temp.length()-1;j>=0;j--){
+                temp2 +=temp.charAt(j);
+            }
+            ans += temp2 +" ";
+        }
+        System.out.println(ans);
+        }
