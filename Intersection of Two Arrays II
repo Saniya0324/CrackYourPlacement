@@ -1,4 +1,26 @@
 class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+   HashSet<Integer> h=new HashSet<>();
+    HashSet<Integer> ht=new HashSet<>();
+   for(int i:nums1){
+    h.add(i);  
+   }
+     for(int i:nums2) {
+         if(h.contains(i)){
+           ht.add(i);
+         }
+     }
+         int [] result = new int[ht.size()];
+            int index = 0;
+        for (int n : ht){
+            result[index] = n;
+            index++;
+        }
+        return result;
+    }
+}
+////////////////////////////////////
+class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
    ArrayList<Integer> ar=new ArrayList<>();
     int n1=nums1.length;
