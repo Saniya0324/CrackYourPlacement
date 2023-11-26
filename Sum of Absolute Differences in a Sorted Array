@@ -1,0 +1,17 @@
+class Solution {
+    public int[] getSumAbsoluteDifferences(int[] nums) {
+   int n=nums.length;
+        int[] res=new int[n];
+    int sum=0;
+        for(int num:nums){
+        sum+=num;    
+        }
+        int l=0,r=sum;
+      for(int i=0;i<n;i++){
+        r=r-nums[i];
+         res[i]= nums[i]*i-l+r-nums[i]*(n-i-1);
+       l =l+nums[i];   
+      }
+        return res;
+    }
+}
