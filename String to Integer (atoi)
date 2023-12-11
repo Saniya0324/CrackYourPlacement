@@ -1,0 +1,35 @@
+class Solution {
+    public int myAtoi(String s) {
+   int len=s.length();
+         if (len == 0){
+        return 0;
+    }
+    int i=0,res=0;
+    while(i<len && s.charAt(i)==' ') i++;
+    boolean isNeg=false;
+    if(i<len){
+    if(s.charAt(i)=='+') {
+        isNeg=false;
+        i++;
+    }
+    else if(s.charAt(i)=='-'){
+        isNeg=true;
+         i++;
+    }
+    }
+    
+    while(i<len && isDigit(s.charAt(i))){
+    int d=s.charAt(i)-'0';
+    if(res>(Integer.MAX_VALUE/10) || res==(Integer.MAX_VALUE/10) && d>7){
+        return isNeg?Integer.MIN_VALUE:Integer.MAX_VALUE;
+    }
+    res=(res*10)+d;
+        i++;
+    }
+    return isNeg?-res:res;
+    }
+                
+    public boolean isDigit(char c){
+    return (c>='0' && c<='9');
+    }
+    }
