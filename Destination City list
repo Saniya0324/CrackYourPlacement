@@ -1,0 +1,11 @@
+public String destCity(List<List<String>> paths) {
+    String ans="";
+    HashSet<String> h=new HashSet<>();
+  for(List<String> path:paths){
+      h.add(path.get(1));
+  }
+   for(List<String> path:paths){
+      h.remove(path.get(0));
+  }
+        return h.iterator().next();
+    }
