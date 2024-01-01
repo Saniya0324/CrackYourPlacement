@@ -1,0 +1,10 @@
+public int minAddToMakeValid(String s) {
+    int n_op=0,n_cl=0;
+    for(int i=0;i<s.length();i++){
+     char c=s.charAt(i);
+    if(c=='(') n_cl++;
+    else if(n_cl>0) n_cl--;
+    else n_op++;
+    }
+    return n_cl+n_op;
+    }
