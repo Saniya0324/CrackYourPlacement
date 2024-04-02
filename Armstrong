@@ -1,0 +1,19 @@
+//An Armstrong number is a number (with 'k' digits) such that the sum of its digits raised to 'kth' power is equal to the number itself. For example, 371 is an Armstrong number because 3^3 + 7^3 + 1^3 = 371.
+
+public static boolean fun(int n){
+		int sum=0;
+        int x=n,c=0;
+		int temp=n;
+		while(x!=0){
+			int d=x%10;
+			c++;
+			x=x/10;
+		}
+		while(n!=0){
+			int d=n%10;
+            sum +=Math.pow(d, c);
+			n=n/10;
+		}
+		if(sum==temp)return true;
+		else return false;
+	}
