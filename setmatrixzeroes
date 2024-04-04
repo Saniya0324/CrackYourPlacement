@@ -23,3 +23,44 @@ class Solution {
 }
        // return matrix;
     }
+
+////////////////////////////////////////////////
+ArrayList version :-
+import java.util.ArrayList;
+
+public class Solution {
+    public static ArrayList<ArrayList<Integer>> zeroMatrix(ArrayList<ArrayList<Integer>> matrix, int n, int m) {
+        int[] r = new int[n];
+        int[] c = new int[m];
+        
+        // Mark rows and columns containing 0
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (matrix.get(i).get(j) == 0) {
+                    r[i] = -1;
+                    c[j] = -1;
+                }
+            }
+        }
+        
+        // Set elements of marked rows to 0
+        for (int i = 0; i < n; i++) {
+            if (r[i] == -1) {
+                for (int j = 0; j < m; j++) {
+                    matrix.get(i).set(j, 0);
+                }
+            }
+        }
+        
+        // Set elements of marked columns to 0
+        for (int j = 0; j < m; j++) {
+            if (c[j] == -1) {
+                for (int i = 0; i < n; i++) {
+                    matrix.get(i).set(j, 0);
+                }
+            }
+        }
+        
+        return matrix;
+    }
+}
