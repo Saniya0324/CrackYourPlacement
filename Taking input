@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class CommissionScheme {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input parent member name
+        System.out.print("Enter parent Member name: ");
+        String parentMember = scanner.nextLine();
+        
+        // Input whether parent member has child members
+        System.out.print("Enter Y if Parent member has child members otherwise enter N: ");
+        char hasChildMembers = scanner.next().charAt(0);
+        
+        int totalMembers = 1; // Initialize total members count with 1 for the parent member
+        double parentCommission = 0; // Initialize parent member's commission
+        
+        if (hasChildMembers == 'Y' || hasChildMembers == 'y') {
+            // Input names of child members
+            System.out.print("Enter names of child members of " + parentMember + " in comma separated: ");
+            scanner.nextLine(); // Consume newline
+            String childMembersInput = scanner.nextLine();
+            String[] childMembers = childMembersInput.split(",");
+            
+            // Calculate commission for parent member
+            parentCommission = 0.1 * childMembers.length * 5000;
+            totalMembers += childMembers.length; // Increment total members count
+            
+            // Calculate commission for each child member
+            double childCommission = 0.05 * 5000;
+            
+            // Print commission details for each member
+            System.out.println("TOTAL MEMBERS: " + totalMembers);
+            System.out.println("COMMISSION DETAILS");
+            System.out.println(parentMember + ": " + (int)parentCommission + " INR");
+            for (String child : childMembers) {
+                System.out.println(child + ": " + (int)childCommission + " INR");
+            }
+        } else {
+            // Calculate commission for parent member (if no child members)
+            parentCommission = 0.05 * 5000;
+            
+            // Print commission details for parent member
+            System.out.println("TOTAL MEMBERS: " + totalMembers);
+            System.out.println("COMMISSION DETAILS");
+            System.out.println(parentMember + ": " + (int)parentCommission + " INR");
+        }
+    }
+}
