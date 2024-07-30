@@ -1,0 +1,12 @@
+public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int[] arr={-3,8,-2,4,-5,6};
+        int n=arr.length;
+        int maxEnd=arr[0];
+        int res=arr[0];
+        for(int i=0;i<n;i++){
+            maxEnd=Math.max(maxEnd+arr[i],arr[i]);
+            res=Math.max(res,maxEnd);
+        }
+        System.out.println(res);
+        }
